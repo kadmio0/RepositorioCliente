@@ -26,8 +26,8 @@ public class RestClient {
 
                 DefaultHttpClient httpClient = new DefaultHttpClient();
 
-                HttpPost postRequest = new HttpPost(
-                        "http://localhost:8080/stepLog");
+                 HttpPost postRequest = new HttpPost(
+                        "http://localhost:8080/band");
 
                 ArrayList<NameValuePair> postParameters;
 
@@ -36,6 +36,7 @@ public class RestClient {
 
                 Integer  n = rand.nextInt(50) + 1;
                 postParameters.add(new BasicNameValuePair("steps",n.toString()));
+		postParameters.add(new BasicNameValuePair("user", "11"));
                 postRequest.setEntity(new UrlEncodedFormEntity(postParameters));
 
                 postRequest.addHeader("accept", "application/json");
