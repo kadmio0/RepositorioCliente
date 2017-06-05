@@ -26,7 +26,7 @@ public class RestClient {
 
                 DefaultHttpClient httpClient = new DefaultHttpClient();
 
-                 HttpPost postRequest = new HttpPost(
+                HttpPost postRequest = new HttpPost(
                         "http://localhost:8080/band");
 
                 ArrayList<NameValuePair> postParameters;
@@ -34,19 +34,22 @@ public class RestClient {
                 postParameters = new ArrayList<NameValuePair>();
                 Random rand = new Random();
 
-                Integer  n = rand.nextInt(50) + 1;
-                Integer sleep_quality = rand.nextInt(80) + 1;
-                Double calories = rand.nextDouble() % 100;
-                Integer pulse = rand.nextInt(80) + 1;
+                Integer  step = rand.nextInt(50) + 1;
+                Integer bpms = rand.nextInt(39)+52;
+                Integer distances = rand.nextInt(4)+1;
+                Float latitude = rand.nextFloat()*7+3;
+                Float longitude = rand.nextFloat()*10+5;
+                Double calories =rand.nextDouble()*20+5;
 
-                postParameters.add(new BasicNameValuePair("steps",n.toString()));
-		        postParameters.add(new BasicNameValuePair("user", "2"));
-		        postParameters.add(new BasicNameValuePair("calories", calories.toString()));
-		        postParameters.add(new BasicNameValuePair("pulse", pulse.toString()));
+                postParameters.add(new BasicNameValuePair("steps",step.toString()));
+                postParameters.add(new BasicNameValuePair("bpm", bpms.toString()));
+                postParameters.add(new BasicNameValuePair("distance", distances.toString()));
+                postParameters.add(new BasicNameValuePair("latitude", latitude.toString()));
+                postParameters.add(new BasicNameValuePair("longitude", longitude.toString()));
+                postParameters.add(new BasicNameValuePair("calories", calories.toString()));
+                postParameters.add(new BasicNameValuePair("user", "1"));
 
-
-		        postRequest.setEntity(new UrlEncodedFormEntity(postParameters));
-
+                postRequest.setEntity(new UrlEncodedFormEntity(postParameters));
                 postRequest.addHeader("accept", "application/json");
 
                 HttpResponse response = httpClient.execute(postRequest);
