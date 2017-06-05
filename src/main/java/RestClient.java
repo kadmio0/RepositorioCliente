@@ -36,10 +36,16 @@ public class RestClient {
 
                 Integer  n = rand.nextInt(50) + 1;
                 Integer sleep_quality = rand.nextInt(80) + 1;
+                Double calories = rand.nextDouble() % 100;
+                Integer pulse = rand.nextInt(80) + 1;
+
                 postParameters.add(new BasicNameValuePair("steps",n.toString()));
 		        postParameters.add(new BasicNameValuePair("user", "2"));
-		        postParameters.add(new BasicNameValuePair("sleep_quality", sleep_quality.toString()));
-                postRequest.setEntity(new UrlEncodedFormEntity(postParameters));
+		        postParameters.add(new BasicNameValuePair("calories", calories.toString()));
+		        postParameters.add(new BasicNameValuePair("pulse", pulse.toString()));
+
+
+		        postRequest.setEntity(new UrlEncodedFormEntity(postParameters));
 
                 postRequest.addHeader("accept", "application/json");
 
