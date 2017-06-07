@@ -39,7 +39,7 @@ public class RestClient {
                 Integer distances = rand.nextInt(4)+1;
                 Float latitude = rand.nextFloat()*7+3;
                 Float longitude = rand.nextFloat()*10+5;
-                Double calories =rand.nextDouble()*20+5;
+                Integer calories =rand.nextInt(20)+5;
 
                 postParameters.add(new BasicNameValuePair("steps",step.toString()));
                 postParameters.add(new BasicNameValuePair("bpm", bpms.toString()));
