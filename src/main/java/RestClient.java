@@ -1,5 +1,3 @@
-
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
@@ -47,7 +45,7 @@ public class RestClient {
                 postParameters.add(new BasicNameValuePair("latitude", latitude.toString()));
                 postParameters.add(new BasicNameValuePair("longitude", longitude.toString()));
                 postParameters.add(new BasicNameValuePair("calories", calories.toString()));
-                postParameters.add(new BasicNameValuePair("user", "1"));
+                postParameters.add(new BasicNameValuePair("user", "2"));
 
                 postRequest.setEntity(new UrlEncodedFormEntity(postParameters));
                 postRequest.addHeader("accept", "application/json");
